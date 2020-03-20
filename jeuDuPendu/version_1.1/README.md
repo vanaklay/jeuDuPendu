@@ -48,6 +48,7 @@ Mes commentaires sur la version 1.1 :
   - Le cas défaite du joueur ajouté.
 
 Modifications envisageables :
+  - Insertion du mot en entier.
   - Insertion du jeu dans une page web.
   - Affichage intéractive des lettres et du mot.
   - Insertion d'effets sonores lorsque la bonne lettre est trouvée.
