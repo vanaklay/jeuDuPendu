@@ -1,4 +1,4 @@
-# Un jeu du Pendu
+# Un jeu du Pendu version 1.1
 ___
 
 ## Le but de ce projet est de créer un jeu du pendu en javascript.
@@ -38,6 +38,14 @@ Mes commentaires sur la version 1.0 :
   - Je n'ai pas utilisé de boucle while.
   - Je n'ai pas ajouté de procédure de Quitter la partie.
   - Je n'ai pas ajouté de procédure pour la limitation du nombre de lettre à taper.
+
+Mes commentaires sur la version 1.1 :
+  - Le cas lettre majuscule en saisie ajouté.
+  - Le cas une seule lettre autorisée ajouté.
+  - Le cas zone vide ajouté.
+  - L'option de quitter la partie ajouté.
+  - Finalement, j'ai suivi le livre et je fais une boucle while.
+  - Le cas défaite du joueur ajouté.
 
 Modifications envisageables :
   - Insertion du jeu dans une page web.

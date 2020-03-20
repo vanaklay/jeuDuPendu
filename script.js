@@ -20,30 +20,78 @@ if (play) {
   for ( let i = 0; i < secretWord.length; i++) {
     wordFound.push(" _ ");
   }
-  alert(wordFound.join(""));
-  let count = 0;
-  for (let j = 0; j < secretWord.length + 2; j++) {
-    count++;
-    let letter = prompt("Tu as le droit à " + ((secretWord.length + 2) - j) + " essai(s) !" +  "\n Choisis une lettre ");
-    for (let i = 0; i < secretWord.length; i++) {
-      if (letter == secretWord[i]) {
-        wordFound[i] = letter;
+  alert("Le mot a trouver est composé de " + secretWord.length + " lettres. \n" + wordFound.join(""));
+
+  // ----- my code -----
+  let count = secretWord.length + 4;
+  let numberMissingLetters = secretWord.length;
+  while ( numberMissingLetters > 0 ) {
+    let letter = prompt("Tu as le droit à " + count + " essai(s) !" +  "\n Devine une lettre, ou clique sur annuler pour quitter la partie ");
+    // add escape the game
+    if ( letter === null) {
+      let quit = confirm("Hey " + name + " !\nTu veux vraiment quitter la partie ?");
+      if (quit) {
+        break;
       }
     }
-    let testWord = wordFound.join("");
-    if ( testWord == secretWord ) {
-      alert("Bravo " + nom + " tu as trouvé le mot secret : " + secretWord + " ! \nEn " + count + " essais !");
-      break;
-    }
-    else {
-      alert("test : "+ testWord);
+    // check only one letter
+    else if (letter.length !== 1) {
+      alert("Tu ne dois saisir qu'une seule lettre.");
     }
 
+    else {
+      count--;
+      for (let i = 0; i < secretWord.length; i++) {
+        if (letter.toLowerCase() == secretWord[i]) {
+          wordFound[i] = letter.toLowerCase();
+          numberMissingLetters--;
+        }
+      }
+      let testWord = wordFound.join("");
+      alert("Mot secret : "+ testWord);
+
+      if ( numberMissingLetters == 0 ) {
+        alert("Bravo " + name + " tu as trouvé le mot secret : " + secretWord);
+        break;
+      }
+      if ( count == 0 ) {
+        alert("You lose ... GAME OVER ... \nRafraichis la page pour m'affronter à nouveau !");
+        break;
+      }
+    }
   }
 }
 else {
   alert("Tant pis, une prochaine fois !");
 }
+
+  // --------------------
+
+  // ------ code from the book ------
+//   let numberMissingLetters = secretWord.length;
+//
+//   while (numberMissingLetters > 0) {
+//     alert(wordFound.join(""));
+//     let reponse = prompt("Devine une lettre, ou clique sur Annuler pour quitter la partie.");
+//     if (reponse === null) {
+//       break;
+//     }
+//     else if (reponse.length !== 1) {
+//       alert("Tu ne dois saisir qu'une seule lettre.");
+//     }
+//     else {
+//       for ( let j = 0; j < secretWord.length; j++) {
+//         if (secretWord[j] === reponse) {
+//           wordFound[j] === reponse;
+//           numberMissingLetters--;
+//         }
+//       }
+//     }
+//     if (numberMissingLetters == 0) {
+//       alert("Félicitations ! Tu as trouvé le mot secret " + secretWord);
+//     }
+//   }
+// }
 
 // pseudo code
 // le rendre plus visuel en utilisant des images de lettres qui s'affiche à l'écran
@@ -89,21 +137,27 @@ function selectCategory() {
   }
 }
 
-
+// Version 1.1 update
+// accept Uppercase letter
+// accept only one letter
+// quit mode activate
+// while loops
+// game over message
+//
 
 
 // After 4 hours work, that's what i accomplished
 
 
 // Pseudo code
-// while le mot n'a pas été déviné {                                    ==> i use a for loop
+// while le mot n'a pas été déviné {                                    ==> UPDATE v1.1: i use the while loops like the book
   // Afficher la progression du joueur                                  ==> ok
           // let progression = [];
   // Récupérer un essai du joueur                                       ==> ok
-  // if le joueur veut quitter la partie {                              ==> not done
+  // if le joueur veut quitter la partie {                              ==> UPDATE v1.1: the player can quit the game with confirm process
   // Quitter la partie
   //  }
-  // else if la réponse du joueur contient plus d'une lettre {          ==> not done
+  // else if la réponse du joueur contient plus d'une lettre {          ==> UPDATE v1.1: Only one letter allowed
     // Demander au joueur de saisir une seule lettre
   // }
   // else {
